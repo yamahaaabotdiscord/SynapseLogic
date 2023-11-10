@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@akarui/aoi.db": "^1.0.0",
+    "@akarui/aoi.music": "^2.3.0",
+    "@akarui/aoi.panel": "^0.0.5",
+    "@akarui/aoi.parser": "^1.0.1",
+    "aoi.canvas": "^1.1.4",
+    "aoi.js": "^6.5.6",
+    "aoi.loader": "^1.0.2",
+    "blagues-api": "^2.1.1",
+    "discord.js": "^14.12.1",
+    "ffmpeg-static": "^5.2.0",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.4",
+    "openai": "^3.3.0",
+    "opusscript": "^0.0.8",
+    "path": "^0.12.7",
+    "spotify-url-info": "^3.2.8",
+    "sqlite3": "^5.1.6"
+  }
+}
