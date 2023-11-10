@@ -13,7 +13,7 @@ const {
 const { AoiClient, Util } = require("aoi.js");
 const aoicanvas = require("aoi.canvas");
 const client = new AoiClient({
-  token: "OTczMjQ4NTYyMzI4NjMzNDE0.GCtUzL.ugPSR8Oomrc8dWy2KIk_qyu-2mODC39p992KcQ",
+  token: "",
   prefix: "+",
   intents: ["MessageContent", "Guilds", "GuildMessages", "GuildVoiceStates"],
   events: ["onMessage", "onInteractionCreate"],
