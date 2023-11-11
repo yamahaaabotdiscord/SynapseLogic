@@ -11,8 +11,8 @@ $description[1;:warning: Cette action est irréversible ?]
 $color[1;Red]
 $addButton[1;Non;danger;nukeno;false]
 $addButton[1;Oui;success;nukeyes;false]
-$onlyClientPerms[managechannels;J'ai besoin de la permission "Manage Channels"]
-$onlyPerms[managechannels;J'ai besoin de la permission "Manage Channels"]
+$onlyClientPerms[managechannels;J'ai besoin de la permission \`MANAGE_CHANNELS\`]
+$onlyPerms[managechannels;J'ai besoin de la permission \`MANAGE_CHANNELS\`]
 $onlyIf[$getVar[maintenance]==false;Le robot actuellement en maintenance !]`
 },{
     name: "nukeyes",
@@ -24,10 +24,10 @@ $let[msgid;$channelSendMessage[$get[id];{newEmbed: {title:Réinitialisation}{des
 $deleteChannel[$channelID]
 $let[id;$cloneChannel[$channelID;$channelName[$channelID];true]]
 $wait[2s]
-$sendMessage[$interactionUpdate[;{newEmbed: {title:Réinitialisation du salon...}{description:Réinitialisation du salon <#$channelID>, veuillez patienter.}{color:Green}};{actionRow: {button:Yes:success:nukeyes:true}{button:No:danger:nukeno:true}};;everyone;false]]`
+$sendMessage[$interactionUpdate[;{newEmbed: {title:Réinitialisation du salon...}{description:Réinitialisation du salon <#$channelID>, veuillez patienter.}{color:Green}};{actionRow: {button:Oui:success:nukeyes:true}{button:Non:danger:nukeno:true}};;everyone;false]]`
 },{
     name: "nukeno",
     type: "interaction",
     prototype: "button",
-    code: `$interactionUpdate[;{newEmbed: {title:Annulation de l'action}{description:L'action a été annulée.}{color:Red}};{actionRow: {button:Yes:success:nukeyes:true}{button:No:danger:nukeno:true}};;everyone;false]`
+    code: `$interactionUpdate[;{newEmbed: {title:Annulation de l'action}{description:L'action a été annulée.}{color:Red}};{actionRow: {button:Oui:success:nukeyes:true}{button:Non:danger:nukeno:true}};;everyone;false]`
 }]
