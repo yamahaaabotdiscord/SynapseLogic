@@ -135,5 +135,62 @@ app.get("/index.js", (req, res) => {
   }
 });
 
+client.functionManager.createFunction({
+  name: "$passwordEnc",
+  type: "djs",
+  code: async (d) => {
+    const data = d.util.aoiFunc(d);
+    let [password] = data.inside.splits;
+    const crypto = require('crypto');
+    salt = "@ho3mi"
 
+    function encPassword(pass, salt) {
+      const hash = crypto.createHmac('sha256', salt);
+      hash.update(pass);
+      const hashedPass = hash.digest('hex');
+      return hashedPass;
+    }
+
+    password? null : functionError(d, 'Password is needed to encrypt.')
+      
+    data.result = encPassword(password, salt)
+
+    return {
+        code: d.util.setCode(data),
+    };
+  },
+})
+
+
+client.functionManager.createFunction({
+  name: "$passwordVerify",
+  type: "djs",
+  code: async (d) => {
+    const data = d.util.aoiFunc(d);
+    let [password,hash] = data.inside.splits;
+    const crypto = require('crypto');
+    salt = "@ho3mi"
+
+    function verify(pass, salt) {
+      const hashed = crypto.createHmac('sha256', salt);
+      hashed.update(pass);
+      const hashedPass = hashed.digest('hex');
+      return hashedPass == hash ? true : false;
+    }
+
+    if (!password || !hash) functionError(d, !password ? '"Password" parameter was not provided.' : !hash ? '"Hash" parameter is not provided.' : null)
+      
+    data.result = verify(password, salt)
+
+    return {
+        code: d.util.setCode(data),
+    };
+  },
+})
+
+
+
+  
+  
+  
 
