@@ -7,6 +7,11 @@ module.exports = [{
 
 $title[Page d'aide - Découvrez Cybrancee !]
 $author[$userDisplayName[$authorID] ( $username[$authorID] )]
+
+$addField[🔐 Sécurité;
+\`+idgen\` - Générer des identifiants aléatoires.
+\`+encpassword\` - Encrypter un mot de passe.;true]
+
 $addField[🎶 Musique;
 \`+play\` - Jouer une musique.
 \`+skip\` - Suivante musique.
@@ -22,7 +27,10 @@ $addField[🎶 Musique;
 \`+prevtrack\` - Rejouer la précédente musique.
 \`+nightcore\` - Mettre en nightcore la musique
 \`+slowed\` - Mettre en ralenti la musique
-\`+8D\` - Mettre en gauche-droite la musique;true]
+\`+8D\` - Mettre en gauche-droite la musique
+\`+bassboost\` - Mettre la basse de la musique plus haut.;true]
+
+
 
 $addField[🛠 Modération;
 \`+nuke\` - Réinitialiser un salon.
@@ -30,7 +38,6 @@ $addField[🛠 Modération;
 \`+ban\` - Ban quelqu'un du serveur.
 \`+timeout\` - Enlève la permission d'accès du serveur à quelqu'un.
 \`+untimeout\` - Ré-autorise la permission d'accès du serveur à quelqu'un.;true]
-
 
 $addField[🧰 Utilité;
 \`+serverinfo\` - Obtenir des informations sur le serveurs.
@@ -40,8 +47,7 @@ $addField[🧰 Utilité;
 $addField[😆 Fun;
 \`+coinflip\` - Tirer à pile ou face.
 \`+cat\` - Obtenir une photographie d'un chat.
-\`+dog\` - Obtenir une photographie d'un chien.
-\`+mdpgen\` - Générer des identifiants aléatoires.;true]
+\`+dog\` - Obtenir une photographie d'un chien.;true]
 
 
 

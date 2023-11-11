@@ -16,5 +16,7 @@ $addTimestamp
 $let[a;$addFilter[{"8D": "0.3"}]]
 $color[$random[0;999999]]
 
-$onlyIf[$getVar[maintenance]==false;Le robot actuellement en maintenance !]`
+$onlyIf[$getVar[maintenance]==false;Le robot actuellement en maintenance !]
+$onlyIf[$voiceID[$clientID]!=;Exécute la commande \`\`+join\`\` d'abord !]
+$onlyIf[$voiceID!=;Rejoint la vocal d'abord !]`
 }]
