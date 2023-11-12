@@ -42,7 +42,8 @@ $addField[🛠 Modération;
 $addField[🧰 Utilité;
 \`+serverinfo\` - Obtenir des informations sur le serveurs.
 \`+botinfo\` - Obtenir des informations concernant SynapseLogic.
-\`+cybrancee\` - Un hébergeur excellent.;true]
+\`+cybrancee\` - Un hébergeur excellent.
+\`+bugreport\` - Signaler un bug au développeur.;true]
 
 $addField[😆 Fun;
 \`+coinflip\` - Tirer à pile ou face.

@@ -13,7 +13,7 @@ module.exports = [{
       $title[Aurevoir !]
       $if[$hasPlayer==true]
           $leaveVC
-$description[J'ai quitté la vocal ⁠<#$voiceID> comme prévu, à bientot]
+$description[J'ai quitté la vocal ⁠<#$voiceID> comme prévu, à bientôt]
 $footer[J'ai quitté cette vocal car $username a exécuté cette commande.]
 $addTimestamp
       $onlyIf[$voiceID[$clientID]!=;Exécute la commande \`\`+join\`\` d'abord !]

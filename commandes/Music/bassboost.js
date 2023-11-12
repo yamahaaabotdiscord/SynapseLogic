@@ -12,7 +12,7 @@ $title[Modification effectuée]
 $description[J'ai mis l'intensité de l'effet bassboost à **0.5** comme prévu !]
 $footer[J'ai mis l'effet bassboost à l'intensité 0.5 car $username a exécuté cette commande.]
 $addTimestamp
-$let[a;$addFilter[{"bassboost": "0.5"}]]
+$let[a;$addFilter[{"bassboost": "1"}]]
 $color[$random[0;999999]]
 $onlyIf[$getVar[maintenance]==false;Le robot actuellement en maintenance !]`
 }]
