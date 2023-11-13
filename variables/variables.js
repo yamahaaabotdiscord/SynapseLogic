@@ -5,7 +5,7 @@ module.exports = client => {
     afkmsg: "Aucune raison",
     time: "",
     maintenance: "false",
-        
+    badges: "none",
 
 
 
