@@ -2,7 +2,7 @@ module.exports = [{
     name: "ban",
     code: `$log[$username[$authorID] a banni l'utilisateur $username[$mentioned[1]]
     Identifiant de l'utilisateur qui a banni l'utilisateur : $authorID
-    Identifiant de l'utilisateur banni : $userID[$mentioned[1]]
+    Identifiant de l'utilisateur banni : $mentioned[1]
     Identifiant du serveur : $guildID
     Nom du serveur : $guildName
     Raison : $noMentionMessage]

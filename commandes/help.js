@@ -8,10 +8,6 @@ module.exports = [{
 $title[Page d'aide - Découvrez Cybrancee !]
 $author[$userDisplayName[$authorID] ( $username[$authorID] )]
 
-$addField[🔐 Sécurité;
-\`+idgen\` - Générer des identifiants aléatoires.
-\`+encpassword\` - Encrypter un mot de passe.;true]
-
 $addField[🎶 Musique;
 \`+play\` - Jouer une musique.
 \`+skip\` - Suivante musique.
@@ -23,12 +19,13 @@ $addField[🎶 Musique;
 \`+pause\` - Mettre en pause la musique.
 \`+resume\` - Rejouer la musique après la pause.
 \`+loop\` - Activer la répétition de la musique.
-\`+loopoff\` - Désactivere la répétition de la musiquue.
+\`+loopoff\` - Désactiver la répétition de la musiquue.
 \`+prevtrack\` - Rejouer la précédente musique.
 \`+nightcore\` - Mettre en nightcore la musique
 \`+slowed\` - Mettre en ralenti la musique
 \`+8D\` - Mettre en gauche-droite la musique
-\`+bassboost\` - Mettre la basse de la musique plus haut.;true]
+\`+bassboost\` - Mettre la basse de la musique plus haut. :warning:
+\`+slowedreverb\` - Mettre la reverb avec du slowed.;true]
 
 
 
@@ -43,12 +40,19 @@ $addField[🧰 Utilité;
 \`+serverinfo\` - Obtenir des informations sur le serveurs.
 \`+botinfo\` - Obtenir des informations concernant SynapseLogic.
 \`+cybrancee\` - Un hébergeur excellent.
-\`+bugreport\` - Signaler un bug au développeur.;true]
+\`+bugreport\` - Signaler un bug au développeur.
+\`+idgen\` - Générer des identifiants aléatoires.
+\`+encpassword\` - Encrypter un mot de passe.
+\`+afk\` - Permet de vous mettre en AFK.
+\`+soutenu\` - Voir les membres qui soutiennent SynapseLogic.;true]
 
 $addField[😆 Fun;
 \`+coinflip\` - Tirer à pile ou face.
 \`+cat\` - Obtenir une photographie d'un chat.
-\`+dog\` - Obtenir une photographie d'un chien.;true]
+\`+dog\` - Obtenir une photographie d'un chien.
+\`+stonks\` - STONKS !;true]
+
+
 
 
 

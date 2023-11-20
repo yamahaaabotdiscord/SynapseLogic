@@ -15,5 +15,6 @@ $description[Je joue la musique $songInfo[title;$playPreviousTrack]]
 $thumbnail[$songInfo[thumbnail;$playPreviousTrack]]
 $color[#ffc3c3]
 $onlyIf[$queueLength>1;Il n'y avait pas de musique jouée avant la musique actuellement.]
-$onlyIf[$getVar[maintenance]==false;Le robot actuellement en maintenance !]`
+$onlyIf[$getVar[maintenance]==false;Le robot actuellement en maintenance !]
+$suppressErrors[Réessaye la commande !]`
 }]
