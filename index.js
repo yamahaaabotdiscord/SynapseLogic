@@ -16,7 +16,7 @@ const client = new AoiClient({
   token: "",
   prefix: "+",
   intents: ["MessageContent", "Guilds", "GuildMessages", "GuildVoiceStates"],
-  events: ["onMessage", "onInteractionCreate"],
+  events: ["onMessage", "onInteractionCreate", "onGuildJoin", "onGuildLeave"],
   database: {
     type: "aoi.db",
     db: require("@akarui/aoi.db"),
@@ -32,7 +32,7 @@ const client = new AoiClient({
 
 const voice = new AoiVoice(client, {
   searchOptions: {
-    soundcloudClientId: "trnMhwTI91yGR73E30PpagpyUvVBs52q", 
+    soundcloudClientId: "II0XosCQQFJENiF74H1uLgxDNWeLSj2T", 
     youtubegl: "US",
   },
   requestOptions: {
@@ -55,11 +55,30 @@ require('./variables/variables.js')(client, () => {
 
 
 
-// Command Example (ping)
-client.command({
-  name: "ping",
-  code: `Pong! $pingms`,
-});
+const moment = require('moment');
+
+// Fonction pour ajouter la date et l'heure à chaque message dans la console
+function logWithTimestamp() {
+  // Obtenez la date actuelle avec Moment.js
+  var currentMoment = moment();
+
+  // Formate la date et l'heure
+  var formattedDateTime = currentMoment.format("DD/MM/YYYY HH:mm:ss");
+
+  // Récupérez les arguments passés à la fonction
+  var args = Array.prototype.slice.call(arguments);
+
+  // Ajoutez la date et l'heure au début des arguments
+  args.unshift(formattedDateTime);
+
+  // Appelez console.log avec les arguments mis à jour
+  console.log.apply(console, args);
+}
+
+// Utilisez la fonction pour enregistrer des événements
+logWithTimestamp("Événement 1 : Lancement de l'application");
+logWithTimestamp("Événement 2 : Traitement des données");
+logWithTimestamp("Événement 3 : Fin de l'application");
 
 // optional (cacher / filter)
 voice.addPlugin(PluginName.Cacher, new Cacher("memory" /* or "disk" */));
@@ -190,7 +209,63 @@ client.functionManager.createFunction({
 
 
 
+  client.functionManager.createFunction({
+  name: '$progressBar',
+  type: 'djs',
+  code: async (d) => {
+    const data = d.util.aoiFunc(d);
+    const [current, total, type = 'filled', style = 'square', scale = 10] = data.inside.splits;
+
+    const styleCharacters = {
+      gradient: { main: '█', secondary: '░' },
+      square: { main: '◼', secondary: '◻' },
+      star: { main: '★', secondary: '☆' },
+      circle: { main: '⬤', secondary: '〇' },
+      tomb: { main: '☗', secondary: '☖' },
+    };
+
+    if (!styleCharacters.hasOwnProperty(style)) {
+      throw new Error('Invalid style. Supported styles are "gradient", "square", "star", "circle", and "tomb".');
+    }
+
+    if (isNaN(current) || isNaN(total) || current < 0 || total <= 0) {
+      throw new Error('Invalid input values.');
+    }
+
+    const { main: mainCharacter, secondary: secondaryCharacter } = styleCharacters[style];
+    const percentage = (current / total) * 100;
+    const filledCount = Math.round((percentage / 100) * scale);
+
+    let progressBar = '';
+
+    if (type === 'filled') {
+      progressBar = mainCharacter.repeat(filledCount) + secondaryCharacter.repeat(scale - filledCount);
+    } else if (type === 'split') {
+      const markerIndex = Math.round((filledCount / scale) * scale - 1);
+      for (let i = 0; i < scale; i++) {
+        progressBar += i === markerIndex ? mainCharacter : secondaryCharacter;
+      }
+    } else if (type === 'partial') {
+      progressBar = mainCharacter.repeat(filledCount);
+    }
+
+    data.result = progressBar;
+    return {
+      code: d.util.setCode(data),
+    };
+  },
+});
   
-  
+const token = '2c01dcb1da0f46c390c9014dc6dc7119';
+async function fetchWebApi(endpoint, method, body) {
+  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method,
+    body:JSON.stringify(body)
+  });
+  return await res.json();
+}
   
 
